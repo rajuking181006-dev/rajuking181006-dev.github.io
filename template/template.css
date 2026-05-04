@@ -396,8 +396,8 @@ body {
 }
 
 .resume.template3 h3 {
-  background: #000;
-  color: #fff;
+  background: #1e293b;
+  color: #ffffff;
 }
 .resume.template4 {
   border-left: 10px solid #2563eb;
@@ -461,12 +461,11 @@ body {
   margin-top: 20px;
 }
 .resume.template8 {
+  position: relative;
   display: grid;
   grid-template-columns: 30% 70%;
   min-height: 100%;
 }
-
-/* Sidebar */
 .resume.template8::before {
   content: "";
   position: absolute;
@@ -476,7 +475,17 @@ body {
   height: 100%;
   background: #1e293b;
 }
-
+.resume.template8 > * {
+  position: relative;
+  z-index: 1;
+  padding-left: 20px;
+}
+@media (max-width: 900px) {
+  .resume.template8::before {
+    width: 100%;
+    height: 120px;
+  }
+}
 /* Content spacing */
 .resume.template8 > * {
   padding-left: 20px;
