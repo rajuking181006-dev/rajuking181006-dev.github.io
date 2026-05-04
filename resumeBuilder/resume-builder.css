@@ -75,17 +75,26 @@ body {
   gap: 10px;
   margin-top: 15px;
 }
+.mobile-actions {
+  display: none;
+}
 
 @media (max-width: 900px) {
+
   .mobile-actions {
     display: flex;
     position: sticky;
     bottom: 0;
     background: #0f172a;
     padding: 10px;
-    z-index: 1000;
+    gap: 10px;
+    z-index: 999;
   }
-}.
+
+}
+.resume-preview {
+  box-sizing: border-box;
+}
 .resume-preview-wrapper {
   overflow-x: auto;
 }
