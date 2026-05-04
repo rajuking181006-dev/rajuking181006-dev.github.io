@@ -581,29 +581,42 @@ console.log("Resume Classes:", resume.className);
 // DOWNLOAD PDF - SINGLE PAGE A4 FIT
 // =========================
 
+const { jsPDF } = window.jspdf;
+
 const downloadBtn = document.getElementById("downloadPdfBtn");
 
 if (downloadBtn) {
-  downloadBtn.addEventListener("click", () => {
+  downloadBtn.addEventListener("click", async () => {
 
     const element = document.getElementById("resumePreview");
 
-    html2canvas(element, {
-      scale: 2
-    }).then(canvas => {
+    if (!element) {
+      alert("Resume preview not found!");
+      return;
+    }
+
+    try {
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true
+      });
 
       const imgData = canvas.toDataURL("image/png");
 
-      const pdf = new jsPDF("p", "mm", "a4");
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4"
+      });
 
-      const pdfWidth = 210;
-      const pdfHeight = 297;
-
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
 
       pdf.save("resume.pdf");
 
-    });
+    } catch (err) {
+      console.error(err);
+      alert("PDF generate nahi ho pa raha");
+    }
 
   });
 }
