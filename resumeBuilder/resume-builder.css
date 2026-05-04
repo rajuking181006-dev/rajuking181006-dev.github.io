@@ -5,7 +5,9 @@
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
-
+body {
+  overflow-x: hidden;
+}
 body {
   background: #0f172a;
   color: #fff;
@@ -655,4 +657,16 @@ body {
   height: 100%;
   object-fit: cover; /* FULL fill karega */
   display: block;
+}
+@media (max-width: 900px) {
+
+  .resume-preview-wrapper {
+    overflow-x: auto;
+  }
+
+  .resume-preview {
+    min-width: 300px;
+    width: 100%;
+  }
+
 }
