@@ -584,36 +584,51 @@ console.log("Resume Classes:", resume.className);
 const downloadBtn = document.getElementById("downloadPdfBtn");
 
 if (downloadBtn) {
- downloadBtn.onclick = async function () {
+  downloadBtn.onclick = async function () {
 
-  const resume = document.getElementById("resumePreview");
+    const resume = document.getElementById("resumePreview");
+    if (!resume) return;
 
-  // 👇 IMPORTANT: force desktop width
-  resume.style.width = "190mm";
+    // 👇 force desktop width
+    resume.style.width = "190mm";
 
-  const canvas = await html2canvas(resume, {
-    scale: 2,
-    useCORS: true,
-    backgroundColor: "#ffffff"
-  });
+    try {
 
-  // 👇 वापस normal कर दो (mobile UI खराब न हो)
-  resume.style.width = "100%";
+      const canvas = await html2canvas(resume, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: "#ffffff"
+      });
 
-  const imgData = canvas.toDataURL("image/png");
-  const { jsPDF } = window.jspdf;
+      // 👇 restore width
+      resume.style.width = "100%";
 
-  const pdf = new jsPDF("p", "mm", "a4");
+      const imgData = canvas.toDataURL("image/png");
+      const { jsPDF } = window.jspdf;
 
-  const pageWidth = 210;
-  const pageHeight = 297;
+      const pdf = new jsPDF("p", "mm", "a4");
 
-  const margin = 5;
-  const usableWidth = pageWidth - margin * 2;
+      const pageWidth = 210;
+      const margin = 5;
+      const usableWidth = pageWidth - margin * 2;
 
-  const imgHeight = (canvas.height * usableWidth) / canvas.width;
+      const imgHeight = (canvas.height * usableWidth) / canvas.width;
 
-  pdf.addImage(imgData, "PNG", margin, margin, usableWidth, imgHeight);
+      pdf.addImage(
+        imgData,
+        "PNG",
+        margin,
+        margin,
+        usableWidth,
+        imgHeight
+      );
 
-  pdf.save("My_Resume.pdf");
-};
+      pdf.save("My_Resume.pdf");
+
+    } catch (error) {
+      console.error("PDF Error:", error);
+      alert("PDF download failed");
+    }
+
+  };
+}
