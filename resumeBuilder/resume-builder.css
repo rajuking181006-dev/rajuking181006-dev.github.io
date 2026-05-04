@@ -68,7 +68,22 @@ body {
 .drawer.open {
   left: 0;
 }
+.mobile-actions {
+  display: none;
+  gap: 10px;
+  margin-top: 15px;
+}
 
+@media (max-width: 900px) {
+  .mobile-actions {
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    background: #0f172a;
+    padding: 10px;
+    z-index: 1000;
+  }
+}
 .drawer-header {
   display: flex;
   align-items: center;
