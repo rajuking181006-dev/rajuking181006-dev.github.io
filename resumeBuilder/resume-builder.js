@@ -581,42 +581,50 @@ console.log("Resume Classes:", resume.className);
 // DOWNLOAD PDF - SINGLE PAGE A4 FIT
 // =========================
 
-const { jsPDF } = window.jspdf;
-
 const downloadBtn = document.getElementById("downloadPdfBtn");
 
 if (downloadBtn) {
-  downloadBtn.addEventListener("click", async () => {
-
-    const element = document.getElementById("resumePreview");
-
-    if (!element) {
-      alert("Resume preview not found!");
-      return;
-    }
+  downloadBtn.onclick = async function () {
+    const resume = document.getElementById("resumePreview");
+    if (!resume) return;
 
     try {
-      const canvas = await html2canvas(element, {
+      const canvas = await html2canvas(resume, {
         scale: 2,
-        useCORS: true
+        useCORS: true,
+        backgroundColor: "#ffffff"
       });
 
       const imgData = canvas.toDataURL("image/png");
+      const { jsPDF } = window.jspdf;
 
-      const pdf = new jsPDF({
-        orientation: "portrait",
-        unit: "mm",
-        format: "a4"
-      });
+      const pdf = new jsPDF("p", "mm", "a4");
 
-      pdf.addImage(imgData, "PNG", 0, 0, 210, 297);
+      const pageWidth = 210;
+      const pageHeight = 297;
 
-      pdf.save("resume.pdf");
+      const margin = 5;
+      const usableWidth = pageWidth - margin * 2;
+      const usableHeight = pageHeight - margin * 2;
 
-    } catch (err) {
-      console.error(err);
-      alert("PDF generate nahi ho pa raha");
+      const imgHeight = (canvas.height * usableWidth) / canvas.width;
+
+      const finalHeight = Math.min(imgHeight, usableHeight);
+
+      pdf.addImage(
+        imgData,
+        "PNG",
+        margin,
+        margin,
+        usableWidth,
+        finalHeight
+      );
+
+      pdf.save("My_Resume.pdf");
+
+    } catch (error) {
+      console.error("PDF Error:", error);
+      alert("PDF download failed. Please try again.");
     }
-
-  });
+  };
 }
