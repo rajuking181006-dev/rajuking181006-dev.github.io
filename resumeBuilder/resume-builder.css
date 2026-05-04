@@ -1,4 +1,8 @@
-/* RESET */
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
 * {
   margin: 0;
   padding: 0;
@@ -181,17 +185,21 @@ body {
 .builder-content {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
 }
-
 .form-panel {
+  flex: 1;
   width: 45%;
   max-height: 85vh;
   overflow-y: auto;
   padding-right: 6px;
+  min-width: 300px;
 }
 
 .preview-panel {
+  flex: 1;
   width: 55%;
+  min-width: 300px;
 }
 
 .panel-card {
@@ -446,18 +454,10 @@ body {
   background: #3b82f6;
   border-radius: 10px;
 }
-
-/* Responsive */
-@media (max-width: 900px) {
-  .builder-main {
-    padding-left: 20px;
-    padding-top: 85px;
-  }
-
-  .builder-topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.topbar-actions {
+  flex-wrap: wrap;
+}
+@media (max-width: 768px) {
 
   .builder-content {
     flex-direction: column;
@@ -466,16 +466,27 @@ body {
   .form-panel,
   .preview-panel {
     width: 100%;
-    max-height: none;
   }
 
-  .form-group {
+  .resume-preview {
+    padding: 15px; /* reduce padding */
+  }
+
+  .builder-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar-actions {
     width: 100%;
+    justify-content: space-between;
   }
 
-  .extra-info-row {
-    grid-template-columns: 1fr;
+  .action-btn {
+    width: 48%;
   }
+
 }
 /* =========================
    OTHER QUALIFICATION FIX
@@ -629,4 +640,13 @@ body {
   height: 100%;
   object-fit: cover; /* FULL fill karega */
   display: block;
+}
+.resume-preview-wrapper {
+  overflow-x: auto;
+}
+
+.resume-preview {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
