@@ -584,47 +584,26 @@ console.log("Resume Classes:", resume.className);
 const downloadBtn = document.getElementById("downloadPdfBtn");
 
 if (downloadBtn) {
-  downloadBtn.onclick = async function () {
-    const resume = document.getElementById("resumePreview");
-    if (!resume) return;
+  downloadBtn.addEventListener("click", () => {
 
-    try {
-      const canvas = await html2canvas(resume, {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff"
-      });
+    const element = document.getElementById("resumePreview");
+
+    html2canvas(element, {
+      scale: 2
+    }).then(canvas => {
 
       const imgData = canvas.toDataURL("image/png");
-      const { jsPDF } = window.jspdf;
 
       const pdf = new jsPDF("p", "mm", "a4");
 
-      const pageWidth = 210;
-      const pageHeight = 297;
+      const pdfWidth = 210;
+      const pdfHeight = 297;
 
-      const margin = 5;
-      const usableWidth = pageWidth - margin * 2;
-      const usableHeight = pageHeight - margin * 2;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
 
-      const imgHeight = (canvas.height * usableWidth) / canvas.width;
+      pdf.save("resume.pdf");
 
-      const finalHeight = Math.min(imgHeight, usableHeight);
+    });
 
-      pdf.addImage(
-        imgData,
-        "PNG",
-        margin,
-        margin,
-        usableWidth,
-        finalHeight
-      );
-
-      pdf.save("My_Resume.pdf");
-
-    } catch (error) {
-      console.error("PDF Error:", error);
-      alert("PDF download failed. Please try again.");
-    }
-  };
+  });
 }
