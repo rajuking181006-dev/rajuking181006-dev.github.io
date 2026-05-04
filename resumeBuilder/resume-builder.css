@@ -157,6 +157,9 @@ body {
 .topbar-actions {
   display: flex;
   gap: 10px;
+  order: 3;
+  width: 100%;
+  justify-content: space-between;
 }
 
 .action-btn {
@@ -184,6 +187,7 @@ body {
 }
 
 .form-panel {
+  order: 1;
   width: 45%;
   max-height: 85vh;
   overflow-y: auto;
@@ -192,6 +196,7 @@ body {
 
 .preview-panel {
   width: 55%;
+  order: 2;
 }
 
 .panel-card {
@@ -329,6 +334,9 @@ body {
 }
 
 .resume-preview {
+    width: 100%;
+  max-width: 190mm;
+  margin: auto;
   background: #ffffff;
   color: #000;
   padding: 30px;
