@@ -83,6 +83,9 @@ body {
     padding: 10px;
     z-index: 1000;
   }
+}.
+.resume-preview-wrapper {
+  overflow-x: auto;
 }
 .drawer-header {
   display: flex;
