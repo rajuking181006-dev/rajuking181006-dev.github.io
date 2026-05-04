@@ -186,6 +186,7 @@ body {
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  align-item: flex-start;
 }
 .form-panel {
   flex: 1;
@@ -342,6 +343,8 @@ body {
   padding: 30px;
   border-radius: 8px;
   min-height: 700px;
+    width: 794px;   
+  min-height: 1123px;
 }
 
 .resume-main-title {
