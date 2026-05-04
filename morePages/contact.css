@@ -1,0 +1,167 @@
+/* =========================
+   GLOBAL
+========================= */
+body {
+  margin: 0;
+  font-family: 'Lexend', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #cbd5f5;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+.contact-header {
+  text-align: center;
+  padding: 40px 20px 10px;
+}
+
+.contact-header h1 {
+  font-size: 30px;
+}
+
+.contact-header p {
+  color: #94a3b8;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.contact-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   INFO
+========================= */
+.contact-info {
+  max-width: 350px;
+}
+
+.contact-info h2 {
+  margin-bottom: 10px;
+}
+
+.contact-info p {
+  color: #cbd5f5;
+  font-size: 14px;
+}
+
+.info-box {
+  margin-top: 15px;
+}
+
+/* =========================
+   FORM
+========================= */
+.contact-form-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  backdrop-filter: blur(8px);
+}
+
+.contact-form-box h2 {
+  margin-bottom: 15px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #fff;
+  font-size: 13px;
+}
+
+.contact-form-box input:focus,
+.contact-form-box textarea:focus {
+  outline: 1px solid #6366f1;
+}
+
+.contact-form-box button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form-box button:hover {
+  opacity: 0.9;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.terms-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

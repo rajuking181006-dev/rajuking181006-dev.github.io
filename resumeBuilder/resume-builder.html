@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4QE3BF64WH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4QE3BF64WH');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Resume Builder | AI Resume Builder</title>
+
+  <link rel="stylesheet" href="resume-builder.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/template/template.css">
+</head>
+<body>
+
+  <div class="resume-builder-page">
+
+    <!-- Drawer Toggle / Logo Button -->
+    <button type="button" class="drawer-toggle" id="drawerToggle">
+  <img src="../assets/logo1.jpeg" alt="logo" id="menuLogo">
+</button>
+
+    <!-- Drawer Menu -->
+    <aside class="drawer" id="drawerMenu">
+      <div class="drawer-header">
+        <div class="brand-icon">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+        <h3>AI Resume Builder</h3>
+      </div>
+
+      <nav class="drawer-menu">
+
+  <a href="../index.html" class="menu-link">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+
+  <a href="resume-builder.html" class="menu-link active">
+    <i class="fa-solid fa-pen-nib"></i>
+    <span>Resume Builder</span>
+  </a>
+
+  <a href="../template/template.html" class="menu-link">
+    <i class="fa-solid fa-layer-group"></i>
+    <span>Templates</span>
+  </a>
+
+</nav>
+    </aside>
+
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="builder-main">
+
+      <!-- Topbar -->
+      <header class="builder-topbar">
+        <div>
+          <h1>Resume Builder</h1>
+          <p>Fill your details and see your resume update instantly</p>
+        </div>
+
+        <div class="topbar-actions">
+          <button type="button" class="action-btn secondary-btn" id="clearResumeBtn">
+            <i class="fa-solid fa-rotate-left"></i>
+            Clear
+          </button>
+
+          <button type="button" class="action-btn primary-btn" id="downloadPdfBtn">
+            <i class="fa-solid fa-file-pdf"></i>
+            Download PDF
+          </button>
+        </div>
+      </header>
+
+      <!-- Builder Layout -->
+      <section class="builder-content">
+
+        <!-- Left Form Panel -->
+        <div class="form-panel">
+
+          <!-- Personal Information -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Personal Information</h3>
+              <p>Enter your personal and contact details</p>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group full-width">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" placeholder="Enter your full name">
+              </div>
+
+              <div class="form-group">
+                <label for="fatherName">Father's Name</label>
+                <input type="text" id="fatherName" placeholder="Enter father's name">
+              </div>
+
+              <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob">
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" placeholder="Enter phone number">
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter email address">
+              </div>
+
+              <div class="form-group full-width">
+                <label for="location">Address / Location</label>
+                <input type="text" id="location" placeholder="e.g. Faridabad, Haryana">
+              </div>
+
+              <div class="form-group">
+                <label for="nationality">Nationality</label>
+                <input type="text" id="nationality" value="Indian" placeholder="Enter nationality">
+              </div>
+
+              <div class="form-group">
+                <label for="maritalStatus">Marital Status</label>
+                <select id="maritalStatus">
+                  <option value="Unmarried">Unmarried</option>
+                  <option value="Married">Married</option>
+                  <option value="Single">Single</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="languages">Language Known</label>
+                <input type="text" id="languages" value="Hindi, English" placeholder="e.g. Hindi, English">
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Career Objective / Summary -->
+          <div class="panel-card">
+            <div class="panel-title summary-title-row">
+              <div>
+                <h3>Career Objective</h3>
+                <p>Default objective is already added. You can edit it if needed.</p>
+              </div>
+
+              <button type="button" class="small-edit-btn" id="editSummaryBtn">
+                <i class="fa-solid fa-pen"></i>
+                Edit
+              </button>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="summary">Summary</label>
+                <textarea id="summary" readonly>To begin my career in a dynamic organization that offers learning opportunities and professional growth. I aim to contribute positively while developing my skills.</textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extra Personal Information -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Extra Information</h3>
+              <p>Add any extra personal detail if required</p>
+            </div>
+
+            <div id="extraInfoContainer"></div>
+
+            <button type="button" class="action-btn secondary-btn" id="addExtraInfoBtn">
+              <i class="fa-solid fa-plus"></i>
+              Add More Information
+            </button>
+          </div>
+
+          <!-- Skills -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Skills</h3>
+              <p>Add your key skills</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="skills">Skills</label>
+                <textarea id="skills" rows="4" placeholder="e.g. Computer Operator, MS Office, Typing, Internet"></textarea>
+                <small>Separate skills with commas</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Work Experience</h3>
+              <p>Add your work experience</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="experienceTitle">Job Role</label>
+                <input type="text" id="experienceTitle" placeholder="e.g. Computer Operator">
+              </div>
+
+              <div class="form-group">
+                <label for="experienceCompany">Company Name</label>
+                <input type="text" id="experienceCompany" placeholder="e.g. ABC Company">
+              </div>
+
+              <div class="form-group">
+                <label for="experienceDuration">Duration</label>
+                <input type="text" id="experienceDuration" placeholder="e.g. 1 Year">
+              </div>
+
+              <div class="form-group full-width">
+                <label for="experienceDescription">Work Description</label>
+                <textarea id="experienceDescription" rows="5" placeholder="Describe your work experience"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Academic Qualification</h3>
+              <p>Add your education details</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="educationDegree">Qualification</label>
+                <input type="text" id="educationDegree" placeholder="e.g. 10th / 12th / B.A.">
+              </div>
+
+              <div class="form-group">
+                <label for="educationInstitute">Board / University</label>
+                <input type="text" id="educationInstitute" placeholder="e.g. HBSE / CBSE">
+              </div>
+
+              <div class="form-group">
+                <label for="educationYear">Year</label>
+                <input type="text" id="educationYear" placeholder="e.g. 2024">
+              </div>
+
+              <div class="form-group">
+                <label for="educationPercentage">Percentage</label>
+                <input type="text" id="educationPercentage" placeholder="e.g. 75%">
+              </div>
+            </div>
+          </div>
+
+          <!-- Other Qualification -->
+<div class="panel-card">
+  <div class="panel-title">
+    <h3>Other Qualification</h3>
+    <p>Add computer course, diploma, certificate etc.</p>
+  </div>
+
+  <!-- Container -->
+  <div id="otherQualificationContainer">
+
+    <!-- First Row -->
+    <div class="other-qualification-row">
+      <input type="text" class="otherQualificationInput" placeholder="e.g. ADCA in Computer">
+      <button type="button" class="add-more-btn" onclick="addQualification()">+ Add More</button>
+    </div>
+
+  </div>
+
+</div>
+
+          <!-- Declaration -->
+          <div class="panel-card">
+            <div class="panel-title">
+              <h3>Declaration</h3>
+              <p class="declaration-info">
+  Default declaration is added. If you want to change it,
+  <button type="button" class="edit-declaration-btn" id="editDeclarationBtn">
+    Edit Now.
+  </button>
+</p>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group full-width">
+                <label for="declaration">Declaration</label>
+                <textarea id="declaration">I hereby declare that the above information given by me is true to the best of my knowledge.</textarea>
+              </div>
+              <div class="field">
+    <label for="date">Date</label>
+    <input type="text" id="date" placeholder="01/01/1999">
+  </div>
+              <div class="form-group">
+                <label for="place">Place</label>
+                <input type="text" id="place" placeholder="e.g. Haryana / Faridabad">
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Preview Panel -->
+        <div class="preview-panel">
+          <div class="preview-header">
+            <h3>Live Resume Preview</h3>
+            <p>Your resume will update here automatically</p>
+          </div>
+
+          <div class="resume-preview-wrapper">
+            <div id="resumePreview" class="resume template1 resume-preview">
+
+              <h1 class="resume-main-title">RESUME</h1>
+
+              <div class="resume-header">
+                <h1 id="previewFullName">Your Name</h1>
+
+                <div class="resume-contact">
+                  <span id="previewLocation">Your Address</span>
+                  <span id="previewPhone">+91 0000000000</span>
+                  <span id="previewEmail">your@email.com</span>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h3>Career Objective</h3>
+                <p id="previewSummary">
+                  To begin my career in a dynamic organization that offers learning opportunities and professional growth. I aim to contribute positively while developing my skills.
+                </p>
+              </div>
+
+              <div class="resume-section">
+                <h3>Academic Qualification</h3>
+                <div class="resume-block">
+                  <div class="block-heading">
+                    <h4 id="previewEducationDegree">Qualification</h4>
+                    <span id="previewEducationYear">Year</span>
+                  </div>
+                  <h5 id="previewEducationInstitute">Board / University</h5>
+                  <p id="previewEducationPercentage">Percentage</p>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h3>Other Qualification</h3>
+                <p id="previewOtherQualification">Your other qualification will appear here.</p>
+              </div>
+
+              <div class="resume-section">
+                <h3>Work Experience</h3>
+                <div class="resume-block">
+                  <div class="block-heading">
+                    <h4 id="previewExperienceTitle">Job Role</h4>
+                    <span id="previewExperienceDuration">Duration</span>
+                  </div>
+                  <h5 id="previewExperienceCompany">Company Name</h5>
+                  <p id="previewExperienceDescription">Your work experience description will appear here.</p>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h3>Skills</h3>
+                <ul id="previewSkills">
+                  <li>Computer Knowledge</li>
+                  <li>MS Office</li>
+                </ul>
+              </div>
+
+              <div class="resume-section">
+                <h3>Personal Information</h3>
+
+                <div class="personal-info-preview">
+                  <p><strong>Father's Name</strong> : <span id="previewFatherName">Father's Name</span></p>
+                  <p><strong>Date of Birth</strong> : <span id="previewDob">Date of Birth</span></p>
+                  <p><strong>Language Known</strong> : <span id="previewLanguages">Hindi, English</span></p>
+                  <p><strong>Gender</strong> : <span id="previewGender">Gender</span></p>
+                  <p><strong>Nationality</strong> : <span id="previewNationality">Indian</span></p>
+                  <p><strong>Marital Status</strong> : <span id="previewMaritalStatus">Unmarried</span></p>
+                  <div id="previewExtraInfo"></div>
+                </div>
+              </div>
+
+              <div class="resume-section">
+                <h3>Declaration</h3>
+                <p id="previewDeclaration">
+                  I hereby declare that the above information given by me is true to the best of my knowledge.
+                </p>
+
+                <div class="declaration-bottom">
+                  <p><strong>Date :</strong> <span id="previewDate">01/01/1999</span></p>
+                  <p><strong>Place :</strong> <span id="previewPlace">Your Place</span></p>
+                  <p class="signature-name">(<span id="previewSignatureName">Your Name</span>)</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="resume-builder.js"></script>
+</body>
+</html>

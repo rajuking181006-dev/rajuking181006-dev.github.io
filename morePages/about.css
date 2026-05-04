@@ -1,0 +1,123 @@
+/* =========================
+   GLOBAL
+========================= */
+body {
+  margin: 0;
+  font-family: 'Lexend', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #fff;
+}
+
+/* =========================
+   HEADER
+========================= */
+.about-header {
+  text-align: center;
+  padding: 50px 20px 20px;
+}
+
+.about-header h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.about-header p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* =========================
+   CONTAINER
+========================= */
+.about-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* =========================
+   BOX
+========================= */
+.about-box {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+}
+
+.about-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* =========================
+   TEXT
+========================= */
+.about-box h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #e2e8f0;
+}
+
+.about-box p {
+  font-size: 14px;
+  color: #cbd5f5;
+  line-height: 1.6;
+}
+
+.about-box ul {
+  padding-left: 18px;
+}
+
+.about-box ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #cbd5f5;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.about-footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+.terms-footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .about-header h1 {
+    font-size: 24px;
+  }
+
+  .about-box {
+    padding: 15px;
+  }
+}
